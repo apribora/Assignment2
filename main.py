@@ -32,16 +32,24 @@ print('Enter your nickname:')
 nickname = input()
 print("=" * 50)
 print(f"Hello, {nickname}! Do you know how to play?")
-answer = input("Y/N: ").lower()
-if answer == 'y':
-    print("Great! Let's start the game.")
-elif answer == 'n':
-    time.sleep(0.5)
-    print("I'm thinking of a number between 1 and 50.")
-    time.sleep(0.5)
-    print("You need to guess the number in a limited number of attempts.")
-    time.sleep(0.5)
-    print("Difficulty level set your number of attempts. Easy mode sets you 10 attempts. Hard mode sets you 5 attempts.")
+#validation for yes/no input
+Rule = True
+while Rule:
+    answer = input("Y/N: ").lower()
+    if answer in ['y', 'yes']:
+        print("Great! Let's start the game.")
+        Rule = False
+        time.sleep(0.5)
+    elif answer in ['n', 'no']:
+        time.sleep(0.5)
+        print("I'm thinking of a number between 1 and 50.")
+        time.sleep(0.5)
+        print("You need to guess the number in a limited number of attempts.")
+        time.sleep(0.5)
+        print("Difficulty level set your number of attempts. Easy mode sets you 10 attempts. Hard mode sets you 5 attempts.")
+        Rule = False
+    else:
+        print("Cooooome oooon. Choose 'Y' or 'N'.")
 
 #difficulty selection
 time.sleep(0.5)
