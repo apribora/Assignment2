@@ -49,7 +49,7 @@ elif difficulty == 'hard':
     os.system('cls' if os.name == 'nt' else 'clear')
 else:
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("Nah. Defaulting to 'easy' mode.")
+    print(f"Nah, there is no {difficulty} mode. Defaulting to 'easy' mode.")
     max_attempts = 10
 
 print(f"You have {max_attempts} attempts to guess the number.")
