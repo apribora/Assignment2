@@ -7,6 +7,12 @@ os.system('cls' if os.name == 'nt' else 'clear')
 low_list = ["Higher", "Too low", "Moreeee", "My number is higher"]
 high_list = ["Lower", "Too high", "Lessss", "My number is lower"]
 
+#score tracking
+user_score = 0
+pc_score = 0
+def display_score(nickname, user_score, pc_score):
+    print(f"[{nickname}: {user_score} / PC: {pc_score}]")
+
 print("╔╗ ╔╦═══╦╗  ╔╗  ╔═══╗")
 time.sleep(0.2)
 print("║║ ║║╔══╣║  ║║  ║╔═╗║")
@@ -77,11 +83,15 @@ while game:
             print(random.choice(high_list))
         else:
             print(f"Congratulations, {nickname}! You've guessed the number {number_to_guess} correctly in {attempts} attempts!")
+            user_score += 1
             break
         if attempts < max_attempts:
             print(f"You have {max_attempts - attempts} attempts left.")
         else:
             print(f"Sorry, {nickname}. You've used all your attempts. The number was {number_to_guess}. Better luck next time!")
+            pc_score += 1
+
+    display_score(nickname, user_score, pc_score)
 
     #ask to play again
     time.sleep(0.5)
