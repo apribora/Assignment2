@@ -1,6 +1,13 @@
 import time
 import random
 import os
+from colorama import Fore, Back, Style, init #import colorama for colored text output
+init() #initialize colorama (required for Windows)
+
+print(Fore.GREEN + 'This is red text')
+print(Style.BRIGHT + 'This is bright text')
+print(Style.RESET_ALL + 'Back to normal')
+
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -42,19 +49,19 @@ while Rule:
         time.sleep(0.5)
     elif answer in ['n', 'no']:
         time.sleep(0.5)
-        print("I'm thinking of a number between 1 and 50.")
+        print(Style.BRIGHT + "I'm thinking of a number between 1 and 50.")
         time.sleep(0.5)
         print("You need to guess the number in a limited number of attempts.")
         time.sleep(0.5)
-        print("Difficulty level set your number of attempts. Easy mode sets you 10 attempts. Hard mode sets you 5 attempts.")
+        print("Difficulty level set your number of attempts. Easy mode sets you 10 attempts. Hard mode sets you 5 attempts." + Style.RESET_ALL)
         Rule = False
     else:
-        print("Cooooome oooon. Choose 'Y' or 'N'.")
+        print(Fore.RED + "Cooooome oooon. Choose 'Y' or 'N'." + Style.RESET_ALL)
 
 #difficulty selection
 time.sleep(0.5)
 print("=" * 50)
-difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+difficulty = input("Choose a difficulty. Type" + Fore.GREEN + " easy" + Fore.RESET + " or" + Fore.RED + " hard" + Style.RESET_ALL).lower()
 if difficulty == 'easy':
     max_attempts = 10
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -81,7 +88,7 @@ while game:
     while attempts < max_attempts:
         guess = input("Make a guess: ")
         if not guess.isdigit():
-            print("Please enter a valid number.")
+            print(Fore.RED + "Please enter a valid number." + Style.RESET_ALL)
             continue
         guess = int(guess)
         attempts += 1
@@ -90,13 +97,13 @@ while game:
         elif guess > number_to_guess:
             print(random.choice(high_list))
         else:
-            print(f"Congratulations, {nickname}! You've guessed the number {number_to_guess} correctly in {attempts} attempts!")
+            print(Fore.GREEN + f"Congratulations, {nickname}! You've guessed the number {number_to_guess} correctly in {attempts} attempts!" + Style.RESET_ALL)
             user_score += 1
             break
         if attempts < max_attempts:
             print(f"You have {max_attempts - attempts} attempts left.")
         else:
-            print(f"Sorry, {nickname}. You've used all your attempts. The number was {number_to_guess}. Better luck next time!")
+            print(Fore.RED + f"Sorry, {nickname}. You've used all your attempts. The number was {number_to_guess}. Better luck next time!" + Style.RESET_ALL)
             pc_score += 1
 
     display_score(nickname, user_score, pc_score)
