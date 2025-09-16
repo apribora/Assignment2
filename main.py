@@ -2,8 +2,8 @@ import time
 import random
 import os
 
-low_list = ["Higher", "Too low", "Moreeee"]
-high_list = ["Lower", "Too high", "Lessss"]
+low_list = ["Higher", "Too low", "Moreeee", "My number is higher"]
+high_list = ["Lower", "Too high", "Lessss", "My number is lower"]
 
 print("╔╗─╔╦═══╦╗──╔╗──╔═══╗")
 time.sleep(0.2)
@@ -56,21 +56,29 @@ time.sleep(0.5)
 print("="*50)
 
 #game loop
-while attempts < max_attempts:
-    guess = input("Make a guess: ")
-    if not guess.isdigit():
-        print("Please enter a valid number.")
-        continue
-    guess = int(guess)
-    attempts += 1
-    if guess < number_to_guess:
-        print(random.choice(low_list))
-    elif guess > number_to_guess:
-        print(random.choice(high_list))
-    else:
-        print(f"Congratulations, {nickname}! You've guessed the number {number_to_guess} correctly in {attempts} attempts!")
-        break
-    if attempts < max_attempts:
-        print(f"You have {max_attempts - attempts} attempts left.")
-    else:
-        print(f"Sorry, {nickname}. You've used all your attempts. The number was {number_to_guess}. Better luck next time!")
+while game:
+    while attempts < max_attempts:
+        guess = input("Make a guess: ")
+        if not guess.isdigit():
+            print("Please enter a valid number.")
+            continue
+        guess = int(guess)
+        attempts += 1
+        if guess < number_to_guess:
+            print(random.choice(low_list))
+        elif guess > number_to_guess:
+            print(random.choice(high_list))
+        else:
+            print(f"Congratulations, {nickname}! You've guessed the number {number_to_guess} correctly in {attempts} attempts!")
+                break
+            if attempts < max_attempts:
+                print(f"You have {max_attempts - attempts} attempts left.")
+            else:
+                print(f"Sorry, {nickname}. You've used all your attempts. The number was {number_to_guess}. Better luck next time!")
+
+time.sleep(0.5)
+print("="*50)
+time.sleep(0.5)
+print("Game Over. Wanna play again? Type Y/N")
+play_again = input().lower()
+if play_again == 'y':
