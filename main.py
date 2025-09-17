@@ -61,7 +61,7 @@ while Rule:
 #difficulty selection
 time.sleep(0.5)
 print("=" * 50)
-difficulty = input("Choose a difficulty. Type" + Fore.GREEN + " easy" + Fore.RESET + " or" + Fore.RED + " hard" + Style.RESET_ALL).lower()
+difficulty = input("Choose a difficulty. Type" + Fore.GREEN + " easy" + Fore.RESET + " or" + Fore.RED + " hard: " + Style.RESET_ALL).lower()
 if difficulty == 'easy':
     max_attempts = 10
     os.system('cls' if os.name == 'nt' else 'clear')
