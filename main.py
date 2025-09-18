@@ -4,11 +4,6 @@ import os
 from colorama import Fore, Back, Style, init #import colorama for colored text output
 init() #initialize colorama (required for Windows)
 
-print(Fore.GREEN + 'This is red text')
-print(Style.BRIGHT + 'This is bright text')
-print(Style.RESET_ALL + 'Back to normal')
-
-
 os.system('cls' if os.name == 'nt' else 'clear')
 
 low_list = ["Higher", "Too low", "Moreeee", "My number is higher"]
