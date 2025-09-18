@@ -108,25 +108,30 @@ while game:
     print("="*50)
     time.sleep(0.5)
     print("Game Over. Wanna play again? Type Y/N")
-    play_again = input().lower()
-    if play_again == 'y':
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(f"Welcome back, {nickname}!")
-        print(f"You have {max_attempts} attempts to guess the number.")
-        print("="*50)
-        #restart the round loop
-        continue
-    else:
-        #exit the game loop
-        game = False
-        print("██████╗░██╗░░░██╗███████╗██╗")
-        time.sleep(0.2)
-        print("██╔══██╗╚██╗░██╔╝██╔════╝██║")
-        time.sleep(0.2)
-        print("██████╦╝░╚████╔╝░█████╗░░██║")
-        time.sleep(0.2)
-        print("██╔══██╗░░╚██╔╝░░██╔══╝░░╚═╝")
-        time.sleep(0.2)
-        print("██████╦╝░░░██║░░░███████╗██╗")
-        time.sleep(0.2)
-        print("╚═════╝░░░░╚═╝░░░╚══════╝╚═╝")
+    Restart = True #restart the round loop
+    while Restart:
+        play_again = input().lower()
+        if play_again in ['y', 'yes']:
+            Restart = False
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(f"Welcome back, {nickname}!")
+            print(f"You have {max_attempts} attempts to guess the number.")
+            print("="*50)
+        elif play_again in ['n', 'no']:
+            Restart = False
+            game = False    #exit the game loop
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("██████╗░██╗░░░██╗███████╗██╗")
+            time.sleep(0.2)
+            print("██╔══██╗╚██╗░██╔╝██╔════╝██║")
+            time.sleep(0.2)
+            print("██████╦╝░╚████╔╝░█████╗░░██║")
+            time.sleep(0.2)
+            print("██╔══██╗░░╚██╔╝░░██╔══╝░░╚═╝")
+            time.sleep(0.2)
+            print("██████╦╝░░░██║░░░███████╗██╗")
+            time.sleep(0.2)
+            print("╚═════╝░░░░╚═╝░░░╚══════╝╚═╝")
+        else:
+            print(Fore.RED + "Are you blind?. Choose 'Y' or 'N'." + Style.RESET_ALL)
+
